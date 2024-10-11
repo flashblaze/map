@@ -1,6 +1,6 @@
-// @ts-check
 import { defineConfig, envField } from "astro/config";
 import preact from "@astrojs/preact";
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,4 +22,5 @@ export default defineConfig({
       },
     },
   },
+  adapter: cloudflare(),
 });

@@ -3,18 +3,19 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
     "astro": "astro",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
-    "dev:all": "concurrently \"pnpm run dev\" \"pnpm run db:studio\""
+    "dev": "wrangler types && astro dev",
+    "dev:all": "concurrently \"pnpm run dev\" \"pnpm run db:studio\"",
+    "start": "wrangler types && astro dev",
+    "build": "wrangler types && astro check && astro build",
+    "preview": "wrangler types && astro preview"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/cloudflare": "^11.1.0",
     "@astrojs/preact": "^3.5.3",
     "@libsql/client": "^0.14.0",
     "astro": "^4.16.0",
@@ -24,7 +25,8 @@
     "maplibre-gl": "^4.7.1",
     "preact": "^10.24.2",
     "react-map-gl": "^7.1.7",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "wrangler": "^3.80.4"
   },
   "devDependencies": {
     "concurrently": "^9.0.1",
