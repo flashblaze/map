@@ -1,11 +1,12 @@
 ---
 import { eq } from "drizzle-orm";
 import Map from "../components/Map.tsx";
-import { db } from "../db";
+import { createDB } from "../db";
 import { locationTable } from "../db/schema";
 
-const latitude = Astro.request.headers.get("cf-iplatitude") ?? "";
-const longitude = Astro.request.headers.get("cf-iplongitude") ?? "";
+const db = createDB(Astro.locals.runtime.env);
+const latitude = Astro.request.headers.get("cf-iplatitude") ?? "0";
+const longitude = Astro.request.headers.get("cf-iplongitude") ?? "0";
 const city = Astro.request.headers.get("cf-ipcity") ?? "";
 const region = Astro.request.headers.get("cf-region") ?? "";
 const regionCode = Astro.request.headers.get("cf-region-code") ?? "";

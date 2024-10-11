@@ -10,8 +10,9 @@
     "dev": "wrangler types && astro dev",
     "dev:all": "concurrently \"pnpm run dev\" \"pnpm run db:studio\"",
     "start": "wrangler types && astro dev",
-    "build": "wrangler types && astro check && astro build",
-    "preview": "wrangler types && astro preview"
+    "build": "wrangler types && pnpm clean && astro check && astro build",
+    "preview": "wrangler pages dev ./dist",
+    "clean": "rimraf dist"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -25,11 +26,12 @@
     "maplibre-gl": "^4.7.1",
     "preact": "^10.24.2",
     "react-map-gl": "^7.1.7",
-    "typescript": "^5.6.3",
-    "wrangler": "^3.80.4"
+    "typescript": "^5.6.3"
   },
   "devDependencies": {
     "concurrently": "^9.0.1",
-    "drizzle-kit": "^0.25.0"
+    "drizzle-kit": "^0.25.0",
+    "rimraf": "^6.0.1",
+    "wrangler": "^3.80.4"
   }
 }
