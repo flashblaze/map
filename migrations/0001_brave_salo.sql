@@ -1,0 +1,1 @@
+ALTER TABLE `location` ADD `last_visit` integer;
