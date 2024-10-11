@@ -9,9 +9,8 @@
     "db:studio": "drizzle-kit studio",
     "dev": "wrangler types && astro dev",
     "dev:all": "concurrently \"pnpm run dev\" \"pnpm run db:studio\"",
-    "start": "wrangler types && astro dev",
+    "start": "wrangler pages dev ./dist",
     "build": "wrangler types && pnpm clean && astro check && astro build",
-    "preview": "wrangler pages dev ./dist",
     "clean": "rimraf dist"
   },
   "dependencies": {
