@@ -1,1 +1,6 @@
-<p>Hi</p>
+---
+import Map from "../components/Map.tsx";
+console.log("Headers", Astro.request.headers);
+---
+
+<Map client:only="preact" />
