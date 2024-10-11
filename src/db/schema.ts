@@ -25,6 +25,7 @@ export const locationTable = sqliteTable(
     country: text("country"),
     hash: text("hash").notNull(),
     count: integer("count").notNull().default(1),
+    lastVisit: integer("last_visit", { mode: "timestamp" }),
   },
   (table) => ({
     latLongIndex: index("lat_long_index").on(table.latitude, table.longitude),
