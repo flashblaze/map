@@ -1,6 +1,27 @@
 ---
 import Map from "../components/Map.tsx";
-console.log("Headers", Astro.request.headers);
+import { db } from "../db";
+import { locationTable } from "../db/schema";
+
+const latitude = Astro.request.headers.get("cf-iplatitude") ?? "";
+const longitude = Astro.request.headers.get("cf-iplongitude") ?? "";
+const city = Astro.request.headers.get("cf-ipcity") ?? "";
+const region = Astro.request.headers.get("cf-region") ?? "";
+const regionCode = Astro.request.headers.get("cf-region-code") ?? "";
+const country = Astro.request.headers.get("cf-ipcountry") ?? "";
+const ip = Astro.request.headers.get("cf-connecting-ip") ?? "";
+const hash = `${latitude}-${longitude}-${city}-${region}-${regionCode}-${country}-${ip}`;
+
+await db.insert(locationTable).values({
+  latitude: parseFloat(latitude),
+  longitude: parseFloat(longitude),
+  city,
+  region,
+  regionCode,
+  country,
+  hash,
+  count: 1,
+});
 ---
 
 <Map client:only="preact" />

@@ -7,16 +7,27 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "dev:all": "concurrently \"pnpm run dev\" \"pnpm run db:studio\""
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/preact": "^3.5.3",
+    "@libsql/client": "^0.14.0",
     "astro": "^4.16.0",
     "deck.gl": "^9.0.33",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.34.1",
     "maplibre-gl": "^4.7.1",
     "preact": "^10.24.2",
     "react-map-gl": "^7.1.7",
     "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "drizzle-kit": "^0.25.0"
   }
 }
