@@ -12,7 +12,7 @@ A simple map visualization app built with Astro, Preact, and MapLibre GL JS. Upo
 6. Run `pnpm db:migrate` to apply the migrations.
 7. Run `pnpm dev:all` to start the development server and the database studio.
 8. To actually log the coordinates, you'll have to use [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/) to proxy the development server, else 0, 0 would be logged.
-9. Just install Tunnel and run `cloudflared tunnel --url http://localhost:4317` to get a URL to visit.
+9. Just install `cloudflared` and run `cloudflared tunnel --url http://localhost:4317` to get a URL to visit.
 
 ## Deployment
 
