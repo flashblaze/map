@@ -22,7 +22,7 @@ const existingLocation = await db
 const now = new Date();
 const rateLimitWindow = 5 * 60 * 1000;
 
-if (existingLocation.length === 0) {
+if (existingLocation.length === 0 && latitude !== "0" && longitude !== "0") {
   await db.insert(locationTable).values({
     latitude: parseFloat(latitude),
     longitude: parseFloat(longitude),
@@ -34,7 +34,7 @@ if (existingLocation.length === 0) {
     count: 1,
     lastVisit: now,
   });
-} else {
+} else if (latitude !== "0" && longitude !== "0") {
   const lastVisit = existingLocation[0]?.lastVisit
     ? new Date(existingLocation[0].lastVisit)
     : now;
