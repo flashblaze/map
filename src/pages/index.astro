@@ -60,4 +60,9 @@ const data = locations.map((location) => [
 ]) as [number, number, number][];
 ---
 
-<Map client:only="preact" data={data} />
+<Map
+  client:only="preact"
+  data={data}
+  longitude={parseFloat(longitude)}
+  latitude={parseFloat(latitude)}
+/>

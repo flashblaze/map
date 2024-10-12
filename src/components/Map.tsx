@@ -4,6 +4,7 @@ import { DeckGL } from "deck.gl";
 import { HeatmapLayer } from "deck.gl";
 
 import type { MapViewState } from "deck.gl";
+import { useEffect, useState } from "preact/hooks";
 
 const INITIAL_VIEW_STATE: MapViewState = {
   longitude: -20.959,
@@ -21,17 +22,26 @@ type DataPoint = [longitude: number, latitude: number, count: number];
 
 export default function App({
   data,
-  intensity = 1,
-  threshold = 0.03,
-  radiusPixels = 30,
-  mapStyle = MAP_STYLE,
+  longitude,
+  latitude,
 }: {
   data?: string | DataPoint[];
-  intensity?: number;
-  threshold?: number;
-  radiusPixels?: number;
-  mapStyle?: string;
+  longitude?: number;
+  latitude?: number;
 }) {
+  const [initialViewState, setInitialViewState] = useState(INITIAL_VIEW_STATE);
+
+  useEffect(() => {
+    if (longitude && latitude) {
+      setInitialViewState({
+        ...INITIAL_VIEW_STATE,
+        longitude,
+        latitude,
+        zoom: 5,
+      });
+    }
+  }, [longitude, latitude]);
+
   const layers = [
     new HeatmapLayer<DataPoint>({
       data,
@@ -39,19 +49,19 @@ export default function App({
       pickable: false,
       getPosition: (d) => [d[0], d[1]],
       getWeight: (d) => d[2],
-      radiusPixels,
-      intensity,
-      threshold,
+      radiusPixels: 30,
+      intensity: 1,
+      threshold: 0.03,
     }),
   ];
 
   return (
     <DeckGL
-      initialViewState={INITIAL_VIEW_STATE}
+      initialViewState={initialViewState}
       controller={true}
       layers={layers}
     >
-      <Map reuseMaps mapStyle={mapStyle} />
+      <Map reuseMaps mapStyle={MAP_STYLE} />
     </DeckGL>
   );
 }
