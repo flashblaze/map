@@ -1,4 +1,4 @@
-# Map Viz
+# MapViz
 
 A simple map visualization app built with Astro, Preact, and MapLibre GL JS. Upon visiting the site, location data is extracted from the Cloudflare request headers and stored in a SQLite database.
 

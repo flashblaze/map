@@ -2,6 +2,8 @@
 import { Map } from "react-map-gl/maplibre";
 import { DeckGL } from "deck.gl";
 import { HeatmapLayer } from "deck.gl";
+// Copied from https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json
+import style from "../../public/style.json";
 
 import type { MapViewState } from "deck.gl";
 import { useEffect, useState } from "preact/hooks";
@@ -14,9 +16,6 @@ const INITIAL_VIEW_STATE: MapViewState = {
   pitch: 0,
   bearing: 0,
 };
-
-const MAP_STYLE =
-  "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json";
 
 type DataPoint = [longitude: number, latitude: number, count: number];
 
@@ -61,7 +60,7 @@ export default function App({
       controller={true}
       layers={layers}
     >
-      <Map reuseMaps mapStyle={MAP_STYLE} />
+      <Map reuseMaps mapStyle={style} />
     </DeckGL>
   );
 }
