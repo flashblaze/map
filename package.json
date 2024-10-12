@@ -18,7 +18,7 @@
     "@astrojs/cloudflare": "^11.1.0",
     "@astrojs/preact": "^3.5.3",
     "@libsql/client": "^0.14.0",
-    "astro": "^4.15.12",
+    "astro": "^4.16.0",
     "deck.gl": "^9.0.33",
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.34.1",
