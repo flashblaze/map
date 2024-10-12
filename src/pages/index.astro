@@ -60,9 +60,40 @@ const data = locations.map((location) => [
 ]) as [number, number, number][];
 ---
 
+<html lang="en">
+  <head>
+    <title>MapViz</title>
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="description" content="Visitor heatmap" /><meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    /><meta name="twitter:card" content="summary" /><meta
+      name="twitter:creator"
+      content="@neeraj_artx"
+    /><meta name="twitter:title" content="MapViz" /><meta
+      name="twitter:description"
+      content="Visitor heatmap"
+    />
+    <link
+      href="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.css"
+      rel="stylesheet"
+    />
+  </head>
+</html>
+
 <Map
   client:only="preact"
   data={data}
   longitude={parseFloat(longitude)}
   latitude={parseFloat(latitude)}
 />
+
+<style>
+  body {
+    margin: 0;
+    font-family: sans-serif;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+</style>

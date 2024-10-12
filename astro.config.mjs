@@ -22,7 +22,6 @@ export default defineConfig({
       },
     },
   },
-  adapter: cloudflare({
-    mode: "directory",
-  }),
+  adapter: cloudflare(),
+  site: "https://map.flashblaze.dev",
 });
