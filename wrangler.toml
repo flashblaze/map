@@ -1,0 +1,49 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "my-astro-app"
+compatibility_date = "2024-10-11"
+pages_build_output_dir = "./dist"
+
+# Automatically place your workloads in an optimal location to minimize latency.
+# If you are running back-end logic in a Pages Function, running it closer to your back-end infrastructure
+# rather than the end user may result in better performance.
+# Docs: https://developers.cloudflare.com/pages/functions/smart-placement/#smart-placement
+[placement]
+mode = "smart"
+
+# Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)
+# Docs:
+# - https://developers.cloudflare.com/pages/functions/bindings/#environment-variables
+# Note: Use secrets to store sensitive data.
+# - https://developers.cloudflare.com/pages/functions/bindings/#secrets
+[vars]
+NODE_VERSION = "20.17.0"
+PNPM_VERSION = "9.9.0"
+
+# Bind a D1 database. D1 is Cloudflare’s native serverless SQL database.
+# Docs: https://developers.cloudflare.com/pages/functions/bindings/#d1-databases
+[[d1_databases]]
+binding = "MAP"
+database_name = "map"
+database_id = "e06477b3-84b1-4b9c-adbc-bf8093822d76"
+
+# To use different bindings for preview and production environments, follow the examples below.
+# When using environment-specific overrides for bindings, ALL bindings must be specified on a per-environment basis.
+# Docs: https://developers.cloudflare.com/pages/functions/wrangler-configuration#environment-specific-overrides
+
+######## PREVIEW environment config ########
+
+# [env.preview.vars]
+# API_KEY = "xyz789"
+
+# [[env.preview.kv_namespaces]]
+# binding = "MY_KV_NAMESPACE"
+# id = "<PREVIEW_NAMESPACE_ID>"
+
+######## PRODUCTION environment config ########
+
+# [env.production.vars]
+# API_KEY = "abc123"
+
+# [[env.production.kv_namespaces]]
+# binding = "MY_KV_NAMESPACE"
+# id = "<PRODUCTION_NAMESPACE_ID>"
