@@ -25,6 +25,8 @@ PNPM_VERSION = "9.9.0"
 binding = "MAP"
 database_name = "map"
 database_id = "e06477b3-84b1-4b9c-adbc-bf8093822d76"
+migrations_dir = "migrations"
+migrations_table = "__drizzle_migrations"
 
 # To use different bindings for preview and production environments, follow the examples below.
 # When using environment-specific overrides for bindings, ALL bindings must be specified on a per-environment basis.
