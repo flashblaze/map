@@ -10,7 +10,7 @@
     "dev": "wrangler types && astro dev",
     "dev:all": "concurrently \"pnpm run dev\" \"pnpm run db:studio\"",
     "start": "wrangler pages dev ./dist",
-    "build": "pnpm run db:migrate && astro build",
+    "build": "astro build",
     "clean": "rimraf dist"
   },
   "dependencies": {
