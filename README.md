@@ -18,7 +18,7 @@ A simple map visualization app built with Astro, Preact, and MapLibre GL JS. Upo
 ## Deployment
 
 1. Set set the `NODE_VERSION` to `20.17.0` and `PNPM_VERSION` to `9.9.0`. It should look something like this:
-   ![Secrets](image-3.png)
+   ![Secrets](image.png)
 2. Enable build cache
    ![Build cache](image-1.png)
 3. Deploy to your branch, connect your domain and also enable location headers and you're good to go! 🎉
