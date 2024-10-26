@@ -9,12 +9,22 @@ export default defineConfig({
   experimental: {
     env: {
       schema: {
-        TURSO_CONNECTION_URL: envField.string({
+        CLOUDFLARE_ACCOUNT_ID: envField.string({
           context: "server",
           access: "secret",
           optional: false,
         }),
-        TURSO_AUTH_TOKEN: envField.string({
+        CLOUDFLARE_DATABASE_ID: envField.string({
+          context: "server",
+          access: "secret",
+          optional: false,
+        }),
+        CLOUDFLARE_D1_TOKEN: envField.string({
+          context: "server",
+          access: "secret",
+          optional: false,
+        }),
+        CLOUDFLARE_D1_BINDING: envField.string({
           context: "server",
           access: "secret",
           optional: false,
